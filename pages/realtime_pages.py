@@ -61,6 +61,17 @@ ALERTS = RealtimePage(PageSpec("Alerts", "/alerts", "Alerts", "Create alert"))
 RULES = RealtimePage(PageSpec("Rules", "/rules", "Rules", "Create rule"))
 METRICS = RealtimePage(PageSpec("Metrics", "/metrics", "Metrics", "Export metrics"))
 EXPORTS = RealtimePage(PageSpec("Exports", "/exports", "Exports", "Start export"))
+FEATURE_FLAGS = RealtimePage(
+    PageSpec("Feature Flags", "/feature-flags", "Feature flags", "Create flag")
+)
+DATA_PIPELINES = RealtimePage(
+    PageSpec("Data Pipelines", "/data-pipelines", "Data pipelines", "Create pipeline")
+)
+SLA = RealtimePage(PageSpec("SLA", "/sla", "Service level", "Create SLA"))
+COMPLIANCE = RealtimePage(
+    PageSpec("Compliance", "/compliance", "Compliance center", "Export evidence")
+)
+QUEUE = RealtimePage(PageSpec("Queue", "/queue", "Processing queue", "Retry failed"))
 
 ALL_PAGES = [
     LOGIN,
@@ -93,4 +104,9 @@ ALL_PAGES = [
     RULES,
     METRICS,
     EXPORTS,
+    FEATURE_FLAGS,
+    DATA_PIPELINES,
+    SLA,
+    COMPLIANCE,
+    QUEUE,
 ]

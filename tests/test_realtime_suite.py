@@ -264,3 +264,43 @@ def test_complex_incident_triage_flow(page, base_url, request, api_base_url):
     incidents_page.expect_heading()
     incidents_page.expect_primary_action_enabled()
     expect(page.get_by_text("Spike in errors")).to_be_visible()
+
+
+@pytest.mark.positive
+def test_feature_flags_create_flow(page, base_url):
+    flags = pages.FEATURE_FLAGS.create(page, base_url)
+    flags.open()
+    flags.expect_heading()
+    flags.expect_primary_action_enabled()
+
+
+@pytest.mark.negative
+def test_data_pipelines_require_source(page, base_url):
+    pipelines = pages.DATA_PIPELINES.create(page, base_url)
+    pipelines.open_with_query([("source", "")])
+    pipelines.expect_heading()
+    pipelines.expect_primary_action_disabled()
+
+
+@pytest.mark.positive
+def test_sla_creation_available(page, base_url):
+    sla = pages.SLA.create(page, base_url)
+    sla.open()
+    sla.expect_heading()
+    sla.expect_primary_action_enabled()
+
+
+@pytest.mark.negative
+def test_compliance_export_requires_scope(page, base_url):
+    compliance = pages.COMPLIANCE.create(page, base_url)
+    compliance.open_with_query([("scope", "missing")])
+    compliance.expect_heading()
+    compliance.expect_primary_action_disabled()
+
+
+@pytest.mark.positive
+def test_queue_retry_action_available(page, base_url):
+    queue = pages.QUEUE.create(page, base_url)
+    queue.open()
+    queue.expect_heading()
+    queue.expect_primary_action_enabled()
