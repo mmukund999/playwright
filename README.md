@@ -1,14 +1,15 @@
 # Realtime QA POM Suite (Playwright Python)
 
 This repository provides a Playwright + Pytest POM-based QA suite for a real-time domain application. It includes **40 page objects** and **40 test cases** (positive/negative coverage, API testing, and complex flows).
+This repository provides a Playwright + Pytest POM-based QA suite for a real-time domain application. It includes **30 page objects** and **30 test cases** (positive/negative coverage, API testing, and complex flows).
 
 ## Structure
 
 - `pages/`
   - `base_page.py`: Shared POM helpers and a `PageSpec` definition.
-  - `realtime_pages.py`: 40 real-time app pages modeled as POM specs.
+  - `realtime_pages.py`: 30 real-time app pages modeled as POM specs.
 - `tests/`
-  - `test_realtime_suite.py`: 40 test cases (UI + API + complex flows).
+  - `test_realtime_suite.py`: 30 test cases (UI + API + complex flows).
   - `conftest.py`: base URL configuration.
 - `pytest.ini`: marker definitions.
 
@@ -49,11 +50,6 @@ This repository provides a Playwright + Pytest POM-based QA suite for a real-tim
 33. SLA
 34. Compliance
 35. Queue
-36. Segments
-37. Regions
-38. Tags
-39. Environments
-40. Playbooks
 
 ## Configuration
 
