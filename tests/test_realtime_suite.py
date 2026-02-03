@@ -188,12 +188,76 @@ def test_support_ticket_creation_flow(page, base_url):
     support.expect_primary_action_enabled()
 
 
+@pytest.mark.positive
+def test_status_dashboard_refresh(page, base_url):
+    status = pages.STATUS.create(page, base_url)
+    status.open()
+    status.expect_heading()
+    status.expect_primary_action_enabled()
+
+
 @pytest.mark.negative
 def test_incidents_require_summary(page, base_url):
     incidents = pages.INCIDENTS.create(page, base_url)
     incidents.open_with_query([("summary", "")])
     incidents.expect_heading()
     incidents.expect_primary_action_disabled()
+
+
+@pytest.mark.positive
+def test_uptime_export_available(page, base_url):
+    uptime = pages.UPTIME.create(page, base_url)
+    uptime.open()
+    uptime.expect_heading()
+    uptime.expect_primary_action_enabled()
+
+
+@pytest.mark.negative
+def test_devices_prevent_duplicate_serial(page, base_url):
+    devices = pages.DEVICES.create(page, base_url)
+    devices.open_with_query([("serial", "DUPLICATE-001")])
+    devices.expect_heading()
+    devices.expect_primary_action_disabled()
+
+
+@pytest.mark.positive
+def test_device_detail_allows_reboot(page, base_url):
+    details = pages.DEVICE_DETAILS.create(page, base_url)
+    details.open()
+    details.expect_heading()
+    details.expect_primary_action_enabled()
+
+
+@pytest.mark.positive
+def test_alerts_create_flow(page, base_url):
+    alerts = pages.ALERTS.create(page, base_url)
+    alerts.open()
+    alerts.expect_heading()
+    alerts.expect_primary_action_enabled()
+
+
+@pytest.mark.negative
+def test_rules_block_missing_condition(page, base_url):
+    rules = pages.RULES.create(page, base_url)
+    rules.open_with_query([("condition", "")])
+    rules.expect_heading()
+    rules.expect_primary_action_disabled()
+
+
+@pytest.mark.positive
+def test_metrics_export_ready(page, base_url):
+    metrics = pages.METRICS.create(page, base_url)
+    metrics.open()
+    metrics.expect_heading()
+    metrics.expect_primary_action_enabled()
+
+
+@pytest.mark.positive
+def test_exports_start_flow(page, base_url):
+    exports = pages.EXPORTS.create(page, base_url)
+    exports.open()
+    exports.expect_heading()
+    exports.expect_primary_action_enabled()
 
 
 @pytest.mark.api

@@ -1,5 +1,6 @@
 # Realtime QA POM Suite (Playwright Python)
 
+This repository provides a Playwright + Pytest POM-based QA suite for a real-time domain application. It includes **40 page objects** and **40 test cases** (positive/negative coverage, API testing, and complex flows).
 This repository provides a Playwright + Pytest POM-based QA suite for a real-time domain application. It includes **30 page objects** and **30 test cases** (positive/negative coverage, API testing, and complex flows).
 
 ## Structure

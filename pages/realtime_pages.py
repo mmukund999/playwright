@@ -72,6 +72,13 @@ COMPLIANCE = RealtimePage(
     PageSpec("Compliance", "/compliance", "Compliance center", "Export evidence")
 )
 QUEUE = RealtimePage(PageSpec("Queue", "/queue", "Processing queue", "Retry failed"))
+SEGMENTS = RealtimePage(PageSpec("Segments", "/segments", "Segments", "Create segment"))
+REGIONS = RealtimePage(PageSpec("Regions", "/regions", "Regions", "Add region"))
+TAGS = RealtimePage(PageSpec("Tags", "/tags", "Tags", "Create tag"))
+ENVIRONMENTS = RealtimePage(
+    PageSpec("Environments", "/environments", "Environments", "Add environment")
+)
+PLAYBOOKS = RealtimePage(PageSpec("Playbooks", "/playbooks", "Playbooks", "Create playbook"))
 
 ALL_PAGES = [
     LOGIN,
@@ -109,4 +116,9 @@ ALL_PAGES = [
     SLA,
     COMPLIANCE,
     QUEUE,
+    SEGMENTS,
+    REGIONS,
+    TAGS,
+    ENVIRONMENTS,
+    PLAYBOOKS,
 ]
